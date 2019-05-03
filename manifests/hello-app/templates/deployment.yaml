@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: hello-app
-          image: "masatoshi/golang-hello-app:543a370b595e1216b904a1ea8ec005fa04ad010c"
+          image: "masatoshi/golang-hello-app:40c340bd89dbb0fd730685ca4b926f5acb5ae72f"
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
