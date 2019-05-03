@@ -1,0 +1,42 @@
+---
+# Source: hello-app/templates/deployment.yaml
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: hello-app
+  labels:
+    app.kubernetes.io/name: hello-app
+    helm.sh/chart: hello-app-0.1.0
+    app.kubernetes.io/instance: hello-app
+    app.kubernetes.io/managed-by: Tiller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: hello-app
+      app.kubernetes.io/instance: hello-app
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: hello-app
+        app.kubernetes.io/instance: hello-app
+    spec:
+      containers:
+        - name: hello-app
+          image: "masatoshi/golang-hello-app:543a370b595e1216b904a1ea8ec005fa04ad010c"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources:
+            {}
+            
