@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: masatoshi/golang-hello-app
-  tag: 543a370b595e1216b904a1ea8ec005fa04ad010c7
+  tag: 543a370b595e1216b904a1ea8ec005fa04ad010c
   pullPolicy: IfNotPresent
 
 nameOverride: ""
