@@ -18,5 +18,6 @@ deploy.flux:
 	--set helmOperator.create=true \
 	--set helmOperator.createCRD=false \
 	--set git.url=git@github.com:Masatoshi-Kouda/k8s-gitops-config \
+	--set git.path=releases/develop \
 	--namespace flux \
 	weaveworks/flux
