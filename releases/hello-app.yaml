@@ -1,0 +1,14 @@
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: hello-app
+  namespace: default
+  annotations:
+    flux.weave.works/automated: "true"
+    flux.weave.works/tag.chart-image: glob:*
+spec:
+  releaseName: hello-app
+  chart:
+    git: ssh://git@github.com/Masatoshi-Kouda/k8s-gitops-config
+    ref: master
+    path: charts/hello-app

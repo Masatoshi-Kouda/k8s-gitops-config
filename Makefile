@@ -9,3 +9,14 @@ deploy.tiller:
 deploy.argocd:
 	kubectl create namespace argocd
 	kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+deploy.flux-helm-release-crd:
+	kubectl apply -f https://raw.githubusercontent.com/weaveworks/flux/master/deploy-helm/flux-helm-release-crd.yaml
+
+deploy.flux:
+	helm upgrade -i flux \
+	--set helmOperator.create=true \
+	--set helmOperator.createCRD=false \
+	--set git.url=git@github.com:Masatoshi-Kouda/k8s-gitops-config \
+	--namespace flux \
+	weaveworks/flux
