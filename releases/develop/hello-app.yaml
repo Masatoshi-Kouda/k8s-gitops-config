@@ -12,3 +12,7 @@ spec:
     git: ssh://git@github.com/Masatoshi-Kouda/k8s-gitops-config
     ref: master
     path: charts/hello-app
+  values:
+    image:
+      repository: masatoshi/golang-hello-app
+      tag: 40c340bd89dbb0fd730685ca4b926f5acb5ae72f

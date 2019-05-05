@@ -20,5 +20,6 @@ deploy.flux:
 	--set git.url=git@github.com:Masatoshi-Kouda/k8s-gitops-config \
 	--set git.path=releases/develop \
 	--set git.pollInterval=1m \
+	--set registry.pollInterval=1m \
 	--namespace flux \
 	weaveworks/flux
