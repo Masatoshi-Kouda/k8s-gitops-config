@@ -5,7 +5,7 @@ metadata:
   namespace: default
   annotations:
     flux.weave.works/automated: "true"
-    flux.weave.works/tag.chart-image: glob:*
+    flux.weave.works/tag.chart-image: glob:dev-*
 spec:
   releaseName: hello-app
   chart:
