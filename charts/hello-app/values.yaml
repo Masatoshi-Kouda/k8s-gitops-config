@@ -5,8 +5,8 @@
 replicaCount: 1
 
 image:
-  repository: masatoshi/golang-hello-app
-  tag: 40c340bd89dbb0fd730685ca4b926f5acb5ae72f
+  repository: ""
+  tag: ""
   pullPolicy: IfNotPresent
 
 nameOverride: ""
