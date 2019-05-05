@@ -6,10 +6,6 @@ deploy.tiller:
 	kubectl apply -f tiller/serviceaccount.yaml
 	helm init --service-account tiller
 
-deploy.argocd:
-	kubectl create namespace argocd
-	kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-
 deploy.flux-helm-release-crd:
 	kubectl apply -f https://raw.githubusercontent.com/weaveworks/flux/master/deploy-helm/flux-helm-release-crd.yaml
 
@@ -23,3 +19,6 @@ deploy.flux:
 	--set registry.pollInterval=1m \
 	--namespace flux \
 	weaveworks/flux
+
+fluxctl.identity:
+	fluxctl identity --k8s-fwd-ns flux
