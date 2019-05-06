@@ -15,5 +15,5 @@ spec:
     path: charts/hello-app
   values:
     image:
-      repository: gcr.io/masatoshi-kouda-207408/golang-hello-app
-      tag: dev-64f900974dadc47f3195418b5518b96e624a2abd
+      repository: asia.gcr.io/masatoshi-kouda-207408/golang-hello-app
+      tag: dev-a7f277df8d0dbe80ce5b601bca2f6f5a601caf02
