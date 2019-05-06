@@ -1,0 +1,19 @@
+---
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: hello-app-green
+  namespace: default
+  annotations:
+    flux.weave.works/automated: "true"
+    flux.weave.works/tag.chart-image: glob:dev-*
+spec:
+  releaseName: hello-app-green
+  chart:
+    git: ssh://git@github.com/Masatoshi-Kouda/k8s-gitops-config
+    ref: master
+    path: charts/hello-app
+  values:
+    image:
+      repository: asia.gcr.io/masatoshi-kouda-207408/golang-hello-app
+      tag: dev-af5b37be7472895faef01869121fc5cc19b8079d
