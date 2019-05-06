@@ -1,0 +1,13 @@
+helmOperator:
+  create: true
+  createCRD: false
+git:
+  url: git@github.com:Masatoshi-Kouda/k8s-gitops-config
+  path: releases/develop
+  pollInterval: 1m
+  secretName: helm-ssh
+registry:
+  pollInterval: 1m
+
+additionalArgs:
+  - --connect=ws://fluxcloud

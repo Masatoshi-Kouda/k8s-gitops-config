@@ -1,24 +1,18 @@
-#############################
-# deploy tiller
-#############################
+deploy.minikube.gcr-secrets:
+	./tmp/create-minikube-gcr-secrets.sh
+
 deploy.tiller:
 	kubectl apply -f tiller/clusterrolebinding.yaml
 	kubectl apply -f tiller/serviceaccount.yaml
 	helm init --service-account tiller
 
-deploy.flux-helm-release-crd:
-	kubectl apply -f https://raw.githubusercontent.com/weaveworks/flux/master/deploy-helm/flux-helm-release-crd.yaml
-
 deploy.flux:
+	kubectl apply -f https://raw.githubusercontent.com/weaveworks/flux/master/deploy-helm/flux-helm-release-crd.yaml
+	kubectl create namespace flux
+	kubectl apply -f flux/fluxcloud.yaml -n flux
+	kubectl -n flux create secret generic helm-ssh --from-file=./tmp/identity
+	kubectl -n flux create secret generic slack-url --from-file=./tmp/slack-url
 	helm upgrade -i flux \
-	--set helmOperator.create=true \
-	--set helmOperator.createCRD=false \
-	--set git.url=git@github.com:Masatoshi-Kouda/k8s-gitops-config \
-	--set git.path=releases/develop \
-	--set git.pollInterval=1m \
-	--set registry.pollInterval=1m \
+	-f flux/values.yaml \
 	--namespace flux \
 	weaveworks/flux
-
-fluxctl.identity:
-	fluxctl identity --k8s-fwd-ns flux
