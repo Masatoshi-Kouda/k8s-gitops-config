@@ -16,5 +16,5 @@ spec:
   values:
     image:
       repository: asia.gcr.io/masatoshi-kouda-207408/golang-hello-app
-      tag: dev-e8072e56bfa4138dc23f376df74cb2ddefa2e579
+      tag: dev-55ee24b618804026718eaddf27a35741ac636674
     replicaCount: 1
