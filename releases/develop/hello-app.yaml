@@ -1,3 +1,4 @@
+---
 apiVersion: flux.weave.works/v1beta1
 kind: HelmRelease
 metadata:
@@ -15,5 +16,5 @@ spec:
   values:
     image:
       repository: asia.gcr.io/masatoshi-kouda-207408/golang-hello-app
-      tag: dev-7363a3095792fc439cd83d1fc3668f34b9f92fe8
+      tag: dev-0b998a5d0e14e46013066fa8b0b314bd9ee09614
     replicaCount: 2
